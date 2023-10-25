@@ -19,7 +19,7 @@ class node:
         """Returns the data value stored in the calling node
 
         Returns:
-            _type_: data value stored in the calling mode
+            _type_: data value stored in the calling node
         """        
         return self.__data
     
@@ -36,7 +36,7 @@ class node:
         """Returns the link stored in the calling node.
 
         Returns:
-            node: linke stored in the calling node
+            node: link stored in the calling node
         """        
         return self.__link
     
@@ -46,7 +46,16 @@ class node:
         Args:
             link (node): specified list
         """        
-        self.__link - link
+        self.__link = link
+
+    def addNodeAfter(self, element):
+        """Add a new node containing a specified element value 
+        at a selected position in the calling node.
+
+        Args:
+            element (_type_): specified element value
+        """        
+        self.__link = node(element, self.__link)
 
 
 
