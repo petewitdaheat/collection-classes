@@ -57,6 +57,10 @@ class node:
         """        
         self.__link = node(element, self.__link)
 
-
+    def removeNodeAfter(self):
+        """Removes a node from a selected position in the calling node.
+        """        
+        self.__link = self.__link.__link
+        
 
     

@@ -3,7 +3,112 @@ from node.node import *
 def main():
     # testInit()
     #testGettersAndSetters()
-    testAddNodeAfter()
+    #testAddNodeAfter()
+    #testRemoveNodeAfter()
+    review()
+
+def review():
+    print("Review")
+
+    #question 1
+    head = node('X', None)
+    print("The head node contains data:", head.getData())
+    head = node('X', head)
+    print("The head node contains data:", head.getData())
+    head = node('X', head)
+    print("The head node contains data:", head.getData())
+    head = node('X', head)
+    print("The head node contains data:", head.getData())
+
+    # question 2
+    selection1 = head
+
+    #question 3
+    selection1.addNodeAfter("O")
+
+    # question 4
+    selection1 = selection1.getLink()
+    selection1 = selection1.getLink()
+
+    # question 5
+    selection1.addNodeAfter("O")
+
+    # question 6
+    selection1 = selection1.getLink()
+    selection1 = selection1.getLink()
+
+    #question 7
+    selection1.addNodeAfter("O")
+
+    # question 8
+    tail = head
+
+    # question 9
+    tail = tail.getLink()
+    tail = tail.getLink()
+    tail = tail.getLink()
+    tail = tail.getLink()
+    tail = tail.getLink()
+    tail = tail.getLink()
+
+    # question 10
+    selection2 = head
+
+    # question 11
+    selection2 = selection2.getLink()
+    selection2 = selection2.getLink()
+
+    # question 12
+    head.setData("A")
+    selection2.setData("A")
+    selection1.setData("A")
+    tail.setData("A")
+
+    # question 13
+    head.removeNodeAfter()
+    selection2.removeNodeAfter()
+    selection1.removeNodeAfter()
+    tail.removeNodeAfter()
+
+
+
+
+
+
+
+def testRemoveNodeAfter():
+    print("Testing Remove Node After")
+
+    # construct a node with data equal to 5 and link equal to None
+    # and assign its reference to head
+    head = node('S', None) # S
+
+    # construct a node with data equal to B and link equal to head
+    # and assign its reference to head
+    head = node('B', head) # B -> S
+
+    #construct a node with data equal to  0and link equal to head
+    # and assign its reference to head
+    head = node('O', head) # O -> B -> S
+
+    # construct a node with data equal to 5 and link equal to head
+    # and assign its reference to head
+    head = node('J', head) # J -> O -> B -> S
+
+    print("The head node contains data:", head.getData())
+
+    # remove the node after the head refers to (node that contains data value equal to 0)
+    head.removeNodeAfter()
+
+    head = head.getLink()
+
+    print("The head node contains data:", head.getData())
+
+    # remove the node after the head refers to (node that contains data value equal to 0)
+    head.removeNodeAfter() #B
+
+    print("The head node contains data:", head.getData())
+
 
 def testAddNodeAfter():
     print("Testing Add Node After")
