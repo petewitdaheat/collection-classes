@@ -5,7 +5,62 @@ def main():
     #testGettersAndSetters()
     #testAddNodeAfter()
     #testRemoveNodeAfter()
-    review()
+    # review()
+    # testListLength()
+    testListSearch()
+
+def testListSearch():
+    print("Testing list search")
+    
+    # construct a node with data equal to 5 and link equal to None
+    # and assign its reference to head
+    head = node('S', None) # S
+
+    # construct a node with data equal to B and link equal to head
+    # and assign its reference to head
+    head = node('B', head) # B -> S
+
+    #construct a node with data equal to  0and link equal to head
+    # and assign its reference to head
+    head = node('O', head) # O -> B -> S
+
+    # construct a node with data equal to 5 and link equal to head
+    # and assign its reference to head
+    head = node('J', head) # J -> O -> B -> S
+
+    print("Head contains", node.listSearch(head, 'J').getData())
+    print("Head contains", node.listSearch(head, 'O').getData())
+    print("Head contains", node.listSearch(head, 'B').getData())
+    print("Head contains", node.listSearch(head, 'S').getData())
+
+    if (node.listSearch(head, 'Z') != None):
+        print("Head contains", node.listSearch(head, 'Z').getData())
+    else:
+        print("Head doesn't contain Z")
+
+
+def testListLength():
+    print("Testing list length")
+
+    # construct a node with data equal to 5 and link equal to None
+    # and assign its reference to head
+    head = node('S', None) # S
+
+    # construct a node with data equal to B and link equal to head
+    # and assign its reference to head
+    head = node('B', head) # B -> S
+
+    #construct a node with data equal to  0and link equal to head
+    # and assign its reference to head
+    head = node('O', head) # O -> B -> S
+
+    # construct a node with data equal to 5 and link equal to head
+    # and assign its reference to head
+    head = node('J', head) # J -> O -> B -> S
+
+    print("Length of head is:", node.listLength(head))
+ 
+
 
 def review():
     print("Review")
@@ -105,9 +160,9 @@ def testRemoveNodeAfter():
     print("The head node contains data:", head.getData())
 
     # remove the node after the head refers to (node that contains data value equal to 0)
-    head.removeNodeAfter() #B
+    #head.removeNodeAfter() #B
 
-    print("The head node contains data:", head.getData())
+    #print("The head node contains data:", head.getData())
 
 
 def testAddNodeAfter():
