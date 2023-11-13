@@ -98,3 +98,52 @@ class stack:
         Returns:
             _type_: element at the top of the calling stack
         """        
+        try:
+            # If the calling stack is empty, raise error.
+            if(self.isEmpty()):
+                raise ValueError("Stack is Empty.")
+        except ValueError as e:
+            # ndisplay value error and exit
+            exit(e)
+        else:
+            # get data in node at head (top) of calling stack
+            top = self.__head.getData()
+
+            # advance head instance variable to the next node
+            self.__head = self.__head.getLink()
+        
+            # recompute the number of nodes on the calling stack
+            self.__manyNodes = node.listLength(self.__head)
+
+            # return data in node at head (top) of calling stack
+            return top
+            
+
+    def peek(self):
+            """Return the element at the head (top) of the calling stack, without removing it.
+            
+            Raises:
+                ValueError = indicates calling stack is empty
+
+            Returns:
+                _type_: element at the top of the calling stack
+            """        
+            try:
+                # If the calling stack is empty, raise error.
+                if(self.isEmpty()):
+                    raise ValueError("Stack is Empty.")
+            except ValueError as e:
+                # ndisplay value error and exit
+                exit(e)
+            else:
+                # get data in node at head (top) of calling stack
+                top = self.__head.getData()
+
+                # advance head instance variable to the next node
+                self.__head = self.__head
+            
+                # recompute the number of nodes on the calling stack
+                self.__manyNodes = node.listLength(self.__head)
+
+                # return data in node at head (top) of calling stack
+                return top
