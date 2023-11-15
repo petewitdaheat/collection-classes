@@ -133,17 +133,8 @@ class stack:
                 if(self.isEmpty()):
                     raise ValueError("Stack is Empty.")
             except ValueError as e:
-                # ndisplay value error and exit
+                # display value error and exit
                 exit(e)
             else:
-                # get data in node at head (top) of calling stack
-                top = self.__head.getData()
-
-                # advance head instance variable to the next node
-                self.__head = self.__head
-            
-                # recompute the number of nodes on the calling stack
-                self.__manyNodes = node.listLength(self.__head)
-
                 # return data in node at head (top) of calling stack
-                return top
+                return self.__head.getData()
