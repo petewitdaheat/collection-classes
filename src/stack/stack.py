@@ -35,7 +35,7 @@ class stack:
         return self.__tail
     
     def getData(self):
-        """Returns the data values in thee calling stack.
+        """Returns the data values in the calling stack.
 
         Returns:
             str: data values in the calling stack

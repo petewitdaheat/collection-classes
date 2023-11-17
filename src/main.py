@@ -3,6 +3,7 @@ from stack.stack import *
 from stack.balancedparens import *
 from stack.calculator import *
 from stack.serialsearch import *
+from stack.insertionsort import *
 
 def main():
     # testPush()
@@ -19,7 +20,49 @@ def main():
     print("((5+2)-(3*(6/9))) = ", calculator.evaluate("((5+2)-(3*(6/9)))"))
     print("((5*2)-(3*(6/2))) = ", calculator.evaluate("((5*2)-(3*(6/2)))"))
         """  
-    testSerialSearch()
+    # testSerialSearch()
+    testInsertionSort()
+
+def testInsertionSort():
+
+    # create an empty stack
+    data = stack()
+
+    # initialize first
+    first = 0
+
+    # push -7 onto the top of the stack
+    data.push('-7')
+
+    # push 42 onto the top of the stack
+    data.push('42')
+
+    # push 70 onto the top of the stack
+    data.push('70')
+
+    # push 39 onto the top of the stack
+    data.push('39')
+
+    # push 3 onto the top of the stack
+    data.push('3')
+
+    # push 63 onto the top of the stack
+    data.push('63')
+
+    # push 8 onto the top of the stack
+    data.push('8')
+
+    # print unsorted stack
+    print(data)
+
+    # call insertion sort method
+    data = insertionsort(data, 1)
+
+    # print sorted stack
+    print(data)
+
+
+
     
 def testSerialSearch():
     # create an empty stack

@@ -27,7 +27,7 @@ def serialsearch(a: stack, first: int, size: int, target):
     while ((i < size) and not found and (i + first < a.size())):
         # if the current element is the target 
         # if (a[i + first] == target)
-        if (a.getData() == target):
+        if (a.setData(i + first) == target):
             # set found to true
             found = True
         else:
