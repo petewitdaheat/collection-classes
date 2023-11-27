@@ -4,34 +4,124 @@ from stack.balancedparens import *
 from stack.calculator import *
 from stack.serialsearch import *
 from stack.insertionsort import *
+from queues.queue import *
+from queues.palindrome import *
 
 def main():
-    # testPush()
-    # testPop()
-    # testIsEmpty()
-    #testPeek()
-    """
-    print("Parenthesis are balanced?", balancedparens.isBalanced("{X+Y"))   # false
-    print("Parenthesis are balanced?", balancedparens.isBalanced("{X+Y)"))   # false
-    print("Parenthesis are balanced?", balancedparens.isBalanced("({X+Y}*Z)"))   # true
-    print("Parenthesis are balanced?", balancedparens.isBalanced("[A+B]*({X+Y}*Z)"))   # True  
-    print("(((6+9)/3)*(6-4)) = ", calculator.evaluate("(((6+9)/3)*(6-4))"))
-    print("(6+(3*(6-4))) = ", calculator.evaluate("(6+(3*(6-4)))"))
-    print("((5+2)-(3*(6/9))) = ", calculator.evaluate("((5+2)-(3*(6/9)))"))
-    print("((5*2)-(3*(6/2))) = ", calculator.evaluate("((5*2)-(3*(6/2)))"))
-        """  
-    # testSerialSearch()
-    testInsertionSort()
+    #testEnqueue()
+    #testQueueIsEmpty()
+    #testDequeue()
+    #testQueuePeek()
+    testPalindrome()
+
+def testPalindrome():
+    exp = input("Please enter an expression: ")
+
+    if(palindrome.isPalindrome(exp)):
+        print("Your expression is a palindrome!")
+    else:
+        print("Your expression is not a palindrome.")
+
+def testEnqueue():
+    print("Testing Enqueue Method in Queue Class")
+
+    q = queue()
+    print("Queue size is:", q.size())   # 0
+    print("Queue contains:", q)         #[]
+
+    q.enqueue("S")
+    print("Queue size is:", q.size())   # 1
+    print("Queue contains:", q)         #[Q]
+
+    # q.enqueue("B")
+    q.enqueue(1)
+    print("Queue size is:", q.size())   # 2
+    print("Queue contains:", q)         #[Q 1]
+
+    # q.enqueue("O")
+    q.enqueue((1,2))
+    print("Queue size is:", q.size())   # 3
+    print("Queue contains:", q)         #[Q 1 (1 , 2)]
+
+    # q.enqueue("J")
+    q.enqueue([1,2,3])
+    print("Queue size is:", q.size())   # 4
+    print("Queue contains:", q)         #[Q 1 (1 , 2) [1,2,3]]
+
+def testQueueIsEmpty():
+    print("Testing Is Empty Method in Queue Class")
+
+    q = queue()
+    q.enqueue("S")
+    q.enqueue("B")
+    q.enqueue("O")
+    q.enqueue("J")
+
+    print("Queue size is:", q.size())   # 4
+    print("Queue contains:", q)         # [J O B S]
+
+    while(not q.isEmpty()):
+        print("Just popped:", q.dequeue())
+
+    print("Queue size is:", q.size())   # 0
+    print("Queue contains:", q)         # []
+
+def testDequeue():
+    print("Testing Dequeue Method in Queue Class")
+
+    q = queue()
+    q.enqueue("S")
+    q.enqueue("B")
+    q.enqueue("O")
+    q.enqueue("J")
+
+    print("Queue size is:", q.size())   # 4
+    print("Queue contains:", q)         # [J O B S]
+    print("Just popped:", q.dequeue())      # J
+
+    print("Queue size is:", q.size())   # 3
+    print("Queue contains:", q)         # [O B S]
+    print("Just popped:", q.dequeue())      # Opush
+
+    print("Queue size is:", q.size())   # 2
+    print("Queue contains:", q)         # [B S]
+    print("Just popped:", q.dequeue())      # B
+
+    print("Queue size is:", q.size())   # 1
+    print("Queue contains:", q)         # [S]
+    print("Just popped:", q.dequeue())      # S
+
+def testQueuePeek():
+    print("Testing Peek Method in Queue Class")
+    q = queue()
+    print("Queue size is:", q.size())               # 0
+    print("Queue contains:", q)                     # []
+    q.enqueue("S")
+    print("Queue size is:", q.size())               # 1
+    print("Queue contains:", q)                     #[S]
+    print("Top element in queue is:", q.peek())     # S
+    q.enqueue("B")
+    print("Queue size is:", q.size())               # 2
+    print("Queue contains:", q)                     # [B S]
+    print("Top element in queue is:", q.peek())     # B
+    q.enqueue("O")
+    print("Queue size is:", q.size())               # 3
+    print("Queue contains:", q)                     # [O B S]
+    print("Top element in queue is:", q.peek())     # O
+    q.enqueue("J")
+    print("Queue size is:", q.size())               # 4
+    print("Queue contains:", q)                     # [J O B S]
+    print("Top element in queue is:", q.peek())     # J
 
 def testInsertionSort():
 
-    # create an empty stack
-    data = stack()
+    # create an empty queue
+    data = queue()
 
     # initialize first
     first = 0
 
-    # push -7 onto the top of the stack
+    # push -7 onto the top of the queue
     data.push('-7')
 
     # push 42 onto the top of the stack
@@ -111,21 +201,21 @@ def testPeek():
     s = stack()
     print("Stack size is:", s.size())               # 0
     print("Stack contains:", s)                     # []
-    s.push("S")
+    s.push("Q")
     print("Stack size is:", s.size())               # 1
-    print("Stack contains:", s)                     #[S]
-    print("Top element in stack is:", s.peek())     # S
+    print("Stack contains:", s)                     #[Q]
+    print("Top element in stack is:", s.peek())     # Q
     s.push("B")
     print("Stack size is:", s.size())               # 2
-    print("Stack contains:", s)                     # [B S]
+    print("Stack contains:", s)                     # [B Q]
     print("Top element in stack is:", s.peek())     # B
     s.push("O")
     print("Stack size is:", s.size())               # 3
-    print("Stack contains:", s)                     # [O B S]
+    print("Stack contains:", s)                     # [O B Q]
     print("Top element in stack is:", s.peek())     # O
     s.push("J")
     print("Stack size is:", s.size())               # 4
-    print("Stack contains:", s)                     # [J O B S]
+    print("Stack contains:", s)                     # [J O B Q]
     print("Top element in stack is:", s.peek())     # J
 
 
@@ -135,16 +225,16 @@ def testIsEmpty():
     print("Testing Is Empty Method in Stack Class")
 
     s = stack()
-    s.push("S")
+    s.push("Q")
     s.push("B")
     s.push("O")
     s.push("J")
 
     print("Stack size is:", s.size())   # 4
-    print("Stack contains:", s)         # [J O B S]
+    print("Stack contains:", s)         # [J O B Q]
 
     while(not s.isEmpty()):
-        print("Just popped:", s.pop())
+        print("Just popped:", s.dequeue())
 
     print("Stack size is:", s.size())   # 0
     print("Stack contains:", s)         # []
@@ -154,26 +244,26 @@ def testPop():
     print("Testing Pop Method in Stack Class")
 
     s = stack()
-    s.push("S")
+    s.push("Q")
     s.push("B")
     s.push("O")
     s.push("J")
 
     print("Stack size is:", s.size())   # 4
-    print("Stack contains:", s)         # [J O B S]
+    print("Stack contains:", s)         # [J O B Q]
     print("Just popped:", s.pop())      # J
 
     print("Stack size is:", s.size())   # 3
-    print("Stack contains:", s)         # [O B S]
+    print("Stack contains:", s)         # [O B Q]
     print("Just popped:", s.pop())      # O
 
     print("Stack size is:", s.size())   # 2
-    print("Stack contains:", s)         # [B S]
+    print("Stack contains:", s)         # [B Q]
     print("Just popped:", s.pop())      # B
 
     print("Stack size is:", s.size())   # 1
-    print("Stack contains:", s)         # [S]
-    print("Just popped:", s.pop())      # S
+    print("Stack contains:", s)         # [Q]
+    print("Just popped:", s.pop())      # Q
 
 
 def testPush():
@@ -183,7 +273,7 @@ def testPush():
     print("Stack size is:", s.size())   # 0
     print("Stack contains:", s)         #[]
 
-    s.push("S")
+    s.push("Q")
     print("Stack size is:", s.size())   # 1
     print("Stack contains:", s)         #[S]
 
