@@ -6,13 +6,25 @@ from stack.serialsearch import *
 from stack.insertionsort import *
 from queues.queue import *
 from queues.palindrome import *
+from queues.palindromerewrite import *
 
 def main():
     #testEnqueue()
     #testQueueIsEmpty()
     #testDequeue()
     #testQueuePeek()
-    testPalindrome()
+    #testPalindrome()
+    testPalindromeRewrite()
+
+def testPalindromeRewrite():
+    exp = input("Please enter an expression: ")
+    while exp != '':
+        if(palindrome.isPalindrome(exp)):
+            print("Your expression is a palindrome!")
+        else:
+            print("Your expression is not a palindrome.")
+
+        exp = input("Please enter an expression: ")
 
 def testPalindrome():
     exp = input("Please enter an expression: ")
