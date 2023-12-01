@@ -7,6 +7,7 @@ from stack.insertionsort import *
 from queues.queue import *
 from queues.palindrome import *
 from queues.palindromerewrite import *
+from queues.palindromefeedback import *
 
 def main():
     #testEnqueue()
@@ -14,7 +15,17 @@ def main():
     #testDequeue()
     #testQueuePeek()
     #testPalindrome()
-    testPalindromeRewrite()
+    #testPalindromeRewrite()
+    testPalindromeFeedback()
+
+def testPalindromeFeedback():
+    exp = input("Please enter an expression: ")
+
+    if(palindrome.isPalindrome(exp)):
+        print("Your expression is a palindrome!")
+    else:
+        print("Your expression is not a palindrome.")
+        print("Mismatch detected at:", palindrome.isNotPalindrome(exp))
 
 def testPalindromeRewrite():
     exp = input("Please enter an expression: ")
