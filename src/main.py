@@ -8,6 +8,9 @@ from queues.queue import *
 from queues.palindrome import *
 from queues.palindromerewrite import *
 from queues.palindromefeedback import *
+from queues.palindromeAnswerKey import *
+from loops import *
+from recursion import *
 
 def main():
     #testEnqueue()
@@ -16,7 +19,69 @@ def main():
     #testQueuePeek()
     #testPalindrome()
     #testPalindromeRewrite()
-    testPalindromeFeedback()
+    #testPalindromeFeedback()
+    #testPalindromeAnswerKey()
+    santaClaus()
+    getPalindromes()
+    recursion_func()
+
+def santaClaus():
+    # 1
+    s = node('S', None)
+    s.addNodeAfter('A')
+    s.addNodeAfter('N')
+    s.addNodeAfter('T')
+    s.addNodeAfter('A')
+
+    # 2
+    c = node('C', None)
+    c.addNodeAfter('L')
+    c.addNodeAfter('A')
+    c.addNodeAfter('U')
+    c.addNodeAfter('S')
+
+    # 3
+    selection = s
+
+    # 4
+    selection = selection.getLink()
+    selection = selection.getLink()
+    selection = selection.getLink()
+    selection = selection.getLink()
+
+    # 5
+    s = node(s, c)
+
+    # santa radar holly kayak civic merry level noon cookies elves
+
+def getPalindromes():
+    words = list(input("Enter ten words separated by a space: ").split())
+    i = 0
+    yes_palindrome = []
+    no_palindrome = []
+
+    for i in words:
+        if(palindrome.isPalindrome(i)):
+            yes_palindrome.append(i)
+        else:
+            no_palindrome.append(i)
+
+    print("These words are palindromes:", *yes_palindrome)
+    print("These words are not palindromes:", *no_palindrome)
+
+
+def recursion_func():
+    print("LOOP")
+    loops.evens(-10, 10)
+    print("\nRECURSION")
+    recursion.evens(-10, 10)
+    
+    
+    
+
+
+    
+
 
 def testPalindromeFeedback():
     exp = input("Please enter an expression: ")
